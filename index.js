@@ -2,7 +2,7 @@
 var EventEmitter = require('events').EventEmitter;
 var fmt = require('util').format;
 var inherits = require('util').inherits;
-var chalk = require('chalk');
+// var chalk = require('chalk');
 var consoleStream = require('console-stream');
 var lpadAlign = require('lpad-align');
 
@@ -137,7 +137,8 @@ Squeak.prototype.log = function (args, opts) {
 
 	if (prefix) {
 		var arr = this.align ? this.types : [prefix];
-		msg.unshift(chalk[color](lpadAlign(prefix, arr, this.indent)));
+		// msg.unshift(chalk[color](lpadAlign(prefix, arr, this.indent)));
+		msg.unshift(lpadAlign(prefix, arr, this.indent));
 	}
 
 	this.stream.write(msg.join(this.separator));
